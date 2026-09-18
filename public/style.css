@@ -1,0 +1,3 @@
+/* Compatibility entry; generated concept pages load their theme explicitly. */
+@import url('./base.css');
+@import url('./theme-a.css');
