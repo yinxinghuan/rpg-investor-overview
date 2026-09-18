@@ -5,10 +5,9 @@ import {readFile,writeFile} from 'node:fs/promises';
 const content=await readFile(new URL('./design/content.html',import.meta.url),'utf8');
 const output=new URL('./public/',import.meta.url);
 const names={a:'蓝金探索版',c:'创作平台版'};
-function review(key){
-  return '<div class="design-review"><span>项目介绍 · '+names[key]+'</span><nav aria-label="切换介绍版本">'+
-    [['a','./index.html','A 蓝金探索'],['c','./concept-c.html','C 创作平台']].map(([k,url,label])=>'<a href="'+url+'"'+(k===key?' aria-current="page"':'')+'>'+label+'</a>').join('')+
-    '<a href="./compare.html">两个版本</a></nav><nav class="language-switch" aria-label="Language"><a class="locale-link" lang="zh-CN" href="'+(key==='a'?'./index.html':'./concept-c.html')+'" aria-current="page">中文</a><a class="locale-link" lang="en" href="'+(key==='a'?'./index-en.html':'./concept-c-en.html')+'">English</a></nav></div>';
+function languageSwitch(key){
+  const file=key==='a'?'index':'concept-c';
+  return `<nav class="language-switch" aria-label="Language"><a class="locale-link" lang="zh-CN" href="./${file}.html" aria-current="page">中文</a><a class="locale-link" lang="en" href="./${file}-en.html">English</a></nav>`;
 }
 function reorder(html,order){
   const matches=[...html.matchAll(/    <section class="chapter (\w+)"/g)];
@@ -21,8 +20,9 @@ const decorations='<svg class="route-stroke" viewBox="0 0 480 580" preserveAspec
 const tickets='<div class="map-ticket ticket-left"><span>样板起点</span><strong>一封旧街的信</strong></div><div class="map-ticket ticket-right"><span>产品方向</span><strong>下一集，由 AI 延展</strong></div>';
 const studio='<div class="creator-studio"><div class="studio-header">你的游戏工作台<span>未来概念</span></div><div class="studio-body"><div class="studio-tabs" role="group" aria-label="查看未来游戏创作示例"><button type="button" data-idea="science" aria-pressed="true">科学探索</button><button type="button" data-idea="classroom" aria-pressed="false">课堂教学</button><button type="button" data-idea="language" aria-pressed="false">语言学习</button></div><span class="studio-label">我想做一个游戏</span><p class="studio-prompt" id="idea-prompt">带着学生去火星，查出基地为什么缺水。</p><div class="studio-result"><span>这个想法可以变成</span><h3 id="idea-title">火星基地的水去哪了？</h3><div class="studio-route" id="idea-route"><span>进入基地</span><span>收集线索</span><span>修复供水</span></div><p id="idea-description">用调查任务，把水的循环与资源管理知识串成一段冒险。</p></div><p class="studio-note">预设示例切换，不调用 AI；用户自行生成整款游戏是未来目标，尚未上线。</p></div><div class="studio-bottom">一个想法 → 故事与场景 → 可以走进去玩的游戏</div></div>';
 for(const key of ['a','c']){
-  let html=content.replaceAll('ART_THEME',key).replace('<body>','<body data-concept="'+key+'">'+review(key));
-  html=html.replace('<link rel="stylesheet" href="./style.css">','<link rel="stylesheet" href="./base.css">\n  <link rel="stylesheet" href="./theme-'+key+'.css">\n  <link rel="stylesheet" href="./review.css">');
+  let html=content.replaceAll('ART_THEME',key).replace('<body>','<body data-concept="'+key+'">');
+  html=html.replace('  </header>',languageSwitch(key)+'  </header>');
+  html=html.replace('<link rel="stylesheet" href="./style.css">','<link rel="stylesheet" href="./base.css">\n  <link rel="stylesheet" href="./theme-'+key+'.css">');
   html=html.replace('</head>','  <link rel="stylesheet" href="./art-flow.css">\n  <link rel="stylesheet" href="./multiplayer.css">\n  <link rel="stylesheet" href="./engine.css">\n  <link rel="stylesheet" href="./localization.css">\n</head>');
   html=html.replace('<title>','<title>'+key.toUpperCase()+' · '+names[key]+'｜');
   if(key==='a'){

@@ -6,7 +6,7 @@
 
 - `npm run dev`：仅提供 `public/`，http://127.0.0.1:5188/
 - `npm run build`：生成 A/C 两版，并将静态文件复制到 `dist/`。无需安装依赖。
-- A：`index.html`；C：`concept-c.html`；双版本入口：`compare.html`。英文文件分别为 `index-en.html`、`concept-c-en.html`、`compare-en.html`。顶部可切换语言，A/C 正文切换时保留章节锚点。
+- A：`index.html`；C：`concept-c.html`；双版本入口：`compare.html`。英文文件分别为 `index-en.html`、`concept-c-en.html`、`compare-en.html`。页面主导航内可切换语言，A/C 正文切换时保留章节锚点。
 
 ## 编辑
 
@@ -29,3 +29,5 @@ GitHub Pages 使用 `.github/workflows/pages.yml`。推送 main 后构建发布 
 本项目是说明网站，没有游戏后台或账号系统。试玩按钮链接到独立的已发布样板。用户生成整款游戏、科学/教学/语言应用属于未来展望。
 
 开门示例、创作台均是预设内容切换，不调用 AI、不读取或写入游戏存档。多人内容明确为目标体验；新 Prolog 服务和现有旧街样板的集成进度在正文分开说明。
+
+A/C 作为两个独立地址对外使用，正文顶部不再显示版本选择栏或比较页入口。
