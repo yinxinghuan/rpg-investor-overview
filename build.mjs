@@ -9,4 +9,4 @@ await cp(new URL('./public/', import.meta.url), new URL('./dist/', import.meta.u
 
 let commit = process.env.GITHUB_SHA || 'local-preview';
 try { if (commit === 'local-preview') commit = execFileSync('git', ['rev-parse', 'HEAD'], {encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore']}).trim(); } catch {}
-await writeFile(new URL('./dist/release.json', import.meta.url), JSON.stringify({commit, versions: ['A', 'C'], feature: 'art-directed-flowchart-v2'}, null, 2));
+await writeFile(new URL('./dist/release.json', import.meta.url), JSON.stringify({commit, versions: ['A', 'C'], feature: 'art-cutouts-to-scene-v3'}, null, 2));

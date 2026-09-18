@@ -31,3 +31,16 @@
 ## 流程图中的具体素材示例
 
 2026-09-18 后续图表修订：人物、桌子、地板通过 SVG viewBox 显示 `archive.png` 的实际画面局部；生成照片显示 `develop.png` 中的照片区域。原始截图未修改，不引入第三方外部图片。底片图标为本项目原创 SVG。示例说明复用素材与新生成照片汇合到已有玩法，不宣称样板支持任意图像种类生成。
+
+## 独立素材 → 组装场景（2026-09-18，再次修订）
+
+本次替换上一版截图局部：
+
+- `media/assembly/table.png` 原样复制自 `rpgjs-story-lab/doc/oldstreet-photo-table/cutout.png`；512×512，带 alpha。
+- `media/assembly/shelf-and-folder.png` 原样复制自 `rpgjs-story-lab/doc/oldstreet-photo-shelf/cutout.png`；1024×512，带 alpha，两个独立帧分别是木搁架与照片夹。
+- `media/assembly/generated-photo.png` 原样复制自 `rpgjs-story-lab/doc/archive-photo-media-20260917/candidate.png`；为平台图像生成的原始文件，其本地生成/接入记录见同目录 `review.md`。不再从显影界面截图裁照片。
+- `media/assembly/floor.png` 原样复制自 `rpgjs-story-lab/doc/oldstreet-photo-floor/candidate.png`。
+
+`old-street-dev.tsx` 实际导入上述放大台和搁架素材，`old-street-photo-table.ts`、`old-street-archive-art.ts` 定义其分帧和组合；地板由 `old-street-environment-art.ts` 导入。流程图通过 SVG 视窗显示原透明素材；灰白棋盘仅是预览底层。
+
+下方房间是同一批原始素材的组装示意，标明 ① 放大台、② 搁架、③ 照片夹、④ 新照片的对应位置；用于解释素材如何合成场景，并非另一次游戏实机截图。图片不重绘、不去背景加工、不包含界面截取。展示图在 SVG 内只嵌入每张图片一次，通过引用复用。
