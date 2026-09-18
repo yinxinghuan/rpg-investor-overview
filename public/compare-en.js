@@ -1,12 +1,12 @@
-const paths={a:'./index.html?v=hybrid-v1',c:'./concept-c.html?v=hybrid-v1'};
-const labels={a:'A 蓝金探索版',c:'C 创作平台版'};
+const paths={a:'./index-en.html?v=hybrid-v1',c:'./concept-c-en.html?v=hybrid-v1'};
+const labels={a:'A Exploration',c:'C Creation'};
 const frame=document.querySelector('#live-preview');
 let selected='a';
 document.querySelectorAll('[data-preview]').forEach(button=>{
   button.addEventListener('click',()=>{
     const key=button.dataset.preview;
     if(key!==selected){frame.src=paths[key];selected=key;}
-    frame.title=labels[key]+'完整交互预览';
+    frame.title=labels[key]+' interactive preview';
     document.querySelectorAll('.preview-controls [data-preview]').forEach(item=>item.setAttribute('aria-pressed',String(item.dataset.preview===key)));
     if(button.closest('.option-actions'))document.querySelector('#preview').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
   });

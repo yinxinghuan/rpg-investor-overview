@@ -6,17 +6,21 @@
   <meta name="theme-color" content="#193a4a">
   <meta name="description" content="大语言模型续写故事，生成内容与可探索空间。了解 AlterU 如何构建一个随玩家探索持续生长的 RPG 世界。">
   <title>A · 蓝金探索版｜你继续玩，AI 接着造｜AlterU AI RPG</title>
-  <link rel="stylesheet" href="./base.css">
-  <link rel="stylesheet" href="./theme-a.css">
-  <link rel="stylesheet" href="./review.css">
-  <script src="./main.js" defer></script>
-  <link rel="stylesheet" href="./art-flow.css">
+  <link rel="stylesheet" href="./base.css?v=776bb746d2">
+  <link rel="stylesheet" href="./theme-a.css?v=d58a890892">
+  <link rel="stylesheet" href="./review.css?v=c32f55f207">
+  <script src="./main.js?v=3dede33864" defer></script>
+  <link rel="stylesheet" href="./art-flow.css?v=ead48fb25b">
+  <link rel="stylesheet" href="./multiplayer.css?v=ade3cba799">
+  <link rel="stylesheet" href="./engine.css?v=a9a9426803">
+  <link rel="stylesheet" href="./localization.css?v=7068e41fd4">
+  <link rel="alternate" hreflang="en" href="./index-en.html">
 </head>
-<body data-concept="a"><div class="design-review"><span>项目介绍 · 蓝金探索版</span><nav aria-label="切换介绍版本"><a href="./index.html" aria-current="page">A 蓝金探索</a><a href="./concept-c.html">C 创作平台</a><a href="./compare.html">两个版本</a></nav></div>
+<body data-concept="a"><div class="design-review"><span>项目介绍 · 蓝金探索版</span><nav aria-label="切换介绍版本"><a href="./index.html" aria-current="page">A 蓝金探索</a><a href="./concept-c.html">C 创作平台</a><a href="./compare.html">两个版本</a></nav><nav class="language-switch" aria-label="Language"><a class="locale-link" lang="zh-CN" href="./index.html" aria-current="page">中文</a><a class="locale-link" lang="en" href="./index-en.html">English</a></nav></div>
   <a class="skip-link" href="#content">跳到正文</a>
   <header class="site-header" id="top">
     <a class="wordmark" href="#top" aria-label="AlterU 探索 RPG 首页"><span class="wordmark-symbol" aria-hidden="true"><span></span></span><span>AlterU <small>AI RPG</small></span></a>
-    <nav aria-label="页面导航"><a href="#growth">怎么个玩法</a><a href="#sample">看看样板</a><a href="#technology">素材怎么生成</a><a href="#future">未来能做什么</a></nav>
+    <nav aria-label="页面导航"><a href="#growth">怎么个玩法</a><a href="#sample">看看样板</a><a href="#engine">世界如何运转</a><a href="#multiplayer">多人怎么玩</a><a href="#future">未来能做什么</a></nav>
     <a class="nav-play" href="https://game.aiwaves.tech/cb90357b-fe01-48ab-b14b-0620eb0d556e/" target="_blank" rel="noopener noreferrer">试玩已发布版本 <span aria-hidden="true">↗</span></a>
   </header>
   <main id="content">
@@ -26,7 +30,7 @@
         <h1 id="hero-title">你继续玩，<br>AI 接着造。</h1>
         <p class="hero-answer">我们想让<strong>游戏的下一集，为你而生。</strong></p>
         <p class="hero-description">你发现一封信，AI 写出信背后的秘密；你追着线索走，新的地方、新的发现接着出现。我们想做的，就是一个越玩越大的游戏世界。</p>
-        <div class="hero-actions"><a class="primary-action" href="#growth">这到底怎么玩？ <span aria-hidden="true">↓</span></a><a class="quiet-action" href="#technology">背后的技术</a></div>
+        <div class="hero-actions"><a class="primary-action" href="#growth">这到底怎么玩？ <span aria-hidden="true">↓</span></a><a class="quiet-action" href="#engine">背后的技术</a></div>
       </div>
       <div class="hero-visual" aria-label="旧街样板游戏画面与路线示意">
         <svg class="route-stroke" viewBox="0 0 480 580" preserveAspectRatio="none" aria-hidden="true"><path d="M22 517 C110 500 82 416 178 398 S243 289 352 276 S360 159 449 58"/></svg><figure class="hero-shot"><img src="./media/street.png" width="390" height="844" alt="《旧街最后一封信》实际运行画面：玩家站在旧街的照相馆门前。" fetchpriority="high"><figcaption>样板实际画面 / 街口</figcaption></figure><div class="map-ticket ticket-left"><span>样板起点</span><strong>一封旧街的信</strong></div><div class="map-ticket ticket-right"><span>产品方向</span><strong>下一集，由 AI 延展</strong></div>
@@ -66,8 +70,35 @@
       <div class="sample-after"><p><strong>我们正在做的事：</strong>让 AI 写出的线索真正接进游戏：你能去找、能动手查，找到之后还能接着发生新的故事。</p><a href="https://game.aiwaves.tech/cb90357b-fe01-48ab-b14b-0620eb0d556e/" target="_blank" rel="noopener noreferrer">打开当前线上试玩 <span aria-hidden="true">↗</span></a></div>
     </section>
 
+    <section class="chapter engine" id="engine" aria-labelledby="engine-title">
+      <div class="chapter-head"><div><span class="chapter-stamp">系统的核心 · 故事背后的因果关系</span><h2 id="engine-title">世界会说话，<br>也要讲道理、记得住。</h2></div><p>你说“我要打开这扇门”，AI 可以把这一幕讲得很精彩。但门到底开没开，要看你在哪里、有没有钥匙，以及之前做过什么。结果一旦确认，就会留在这个世界里。</p></div>
+      <div class="engine-roles">
+        <article><span>01 / AI 叙事</span><h3>听懂你想做什么</h3><p>把自由表达变成行动意图，让人物和世界作出自然的回应。</p></article>
+        <article><span>02 / Prolog 规则引擎</span><h3>判断这件事能不能成</h3><p>查地点、物品、任务和人物关系。满足条件才通过，不满足就说清原因。</p></article>
+        <article><span>03 / Story Session 存档</span><h3>把结果记到账本里</h3><p>把物品、任务和关系的变化一起保存。同一个动作重试，也只生效一次。</p></article>
+      </div>
+      <div class="engine-example">
+        <div class="engine-example-head"><div><span class="engine-eyebrow">用一扇门，看懂整个过程</span><h3>“我用钥匙打开档案室。”</h3></div><span class="engine-demo-label">可切换的原理示意</span></div>
+        <ol class="engine-pipeline">
+          <li><span>玩家表达</span><strong>我想开门</strong></li><li><span>AI 理解</span><strong>提出开门行动</strong></li><li><span>规则核对</span><strong>人、钥匙、权限</strong></li><li><span>确认并保存</span><strong>世界真的改变</strong></li>
+        </ol>
+        <div class="engine-scenarios" role="group" aria-label="选择开门情境"><button type="button" data-rule-case="missing" aria-pressed="true">没有钥匙</button><button type="button" data-rule-case="ready" aria-pressed="false">条件齐了</button><button type="button" data-rule-case="retry" aria-pressed="false">网络重试了</button></div>
+        <div class="engine-result" aria-live="polite" aria-atomic="true"><div class="engine-check"><span>先查账本</span><p id="rule-facts">你就在门前，但背包里没有钥匙。</p><strong id="rule-verdict">未通过 · 缺少钥匙</strong></div><div class="engine-receipt"><span>世界里的真实结果</span><h4 id="rule-result">门还是锁着的。</h4><p id="rule-detail">AI 可以提示你去哪里找钥匙，但不能只写一句“门开了”就替你放行。</p></div></div>
+        <p class="engine-demo-note">这是预设的解释示例，不连接游戏存档。示例中，开门需要人在门前、持有钥匙并已获准进入。</p>
+      </div>
+      <div class="engine-data">
+        <div><span class="chapter-stamp">存什么，怎么算？</span><h3>存下的是事实，<br>下次行动从事实出发。</h3><p>系统保留一份以它为准的“世界账本”。AI 描述故事时参考它，规则判断行动时检查它，行动成功后再更新它。</p></div>
+        <dl class="engine-ledger"><div><dt>当前状态</dt><dd>你在哪、钥匙归谁、门开没开、任务做到哪。</dd></div><div><dt>经历与关系</dt><dd>你帮过谁、答应过什么，以及规则认可的信任或敌对变化。</dd></div><div><dt>行动回执</dt><dd>这次开门已经处理过。网络再发一次，返回原结果，不重复扣资源、发奖励。</dd></div></dl>
+      </div>
+      <div class="engine-memory"><div><span class="engine-eyebrow">人物为什么会记得你？</span><h3>你帮过店主，下一次就不一样。</h3></div><ol><li><span>记下经历</span><strong>你归还了失物</strong></li><li><span>按规则更新关系</span><strong>店主愿意帮忙</strong></li><li><span>下次检查这个事实</span><strong>可以借出钥匙</strong></li></ol><p>这是关系规则的一个例子。能否借到钥匙，取决于真实记录的帮助和当前条件。AI 可以换一种说法，但不能随口改掉已经发生的事。</p></div>
+      <div class="engine-guarantees"><p><strong>一起成功，或一起不发生。</strong>一次行动涉及的物品、任务和关系作为一个整体写入，避免“东西扣了，任务却没完成”。</p><p><strong>选择有后果，回来还能接着玩。</strong>失败能知道原因，成功有记录；人物的态度、物品归属和任务进展都能延续下去。</p></div>
+      <p class="engine-summary">AI 让世界会说话。<br><strong>规则让世界讲道理，存档让世界不会忘记。</strong></p>
+      <p class="engine-scope">这里介绍 RPG 系统的混合架构。Prolog 服务已独立验证；旧街空间样板目前使用既有的规则与存档链路，尚未接入新服务。</p>
+      <a class="engine-art-link" href="#technology">接下来：确认的新内容，如何变成看得见的场景？ <span aria-hidden="true">↓</span></a>
+    </section>
+
     <section class="chapter technology" id="technology" aria-labelledby="technology-title">
-      <div class="chapter-head"><div><span class="chapter-stamp">从一张底片开始 · 素材生成流程</span><h2 id="technology-title">你往前探索，<br>新内容这样出现。</h2></div><p>拿旧街样板举个例子：你找到一张底片，AI 准备一张承接旧事的新照片。台子、搁架和照片夹沿用已有素材，新的发现则按剧情生成。</p></div>
+      <div class="chapter-head"><div><span class="chapter-stamp">让世界看得见 · 美术是其中一环</span><h2 id="technology-title">你往前探索，<br>新内容这样出现。</h2></div><p>拿旧街样板举个例子：你找到一张底片，AI 准备一张承接旧事的新照片。台子、搁架和照片夹沿用已有素材，新的发现则按剧情生成。</p></div>
       <figure class="art-flow" aria-labelledby="art-caption">
         <picture><source media="(max-width: 700px)" srcset="./media/art-flow-a-mobile.svg"><img src="./media/art-flow-a-wide.svg" width="1000" height="1620" loading="lazy" alt="玩家行动后，AI 规划剧情并判断所需素材是否已有。有则复用或重组；没有且支持生成则生成新素材。两路汇合，经校验接入玩法，更新游戏画面与进度，再保存。"></picture>
         <figcaption id="art-caption"><span class="flow-legend flow-legend-reuse">复用：放大台、木搁架、照片夹</span><span class="flow-legend flow-legend-new">生成：承接剧情的新照片</span></figcaption>
@@ -77,6 +108,28 @@
     </section>
 
     <section class="chapter status" aria-labelledby="status-title"><div><span class="chapter-stamp">从样板走向愿景</span><h2 id="status-title">从一条街开始，<br>向玩不完的世界出发。</h2></div><div class="status-right"><p>我们已经把 AI 生成的调查材料、房间布置方案和照片接入样板。现在正把它们串成更连贯、更好玩的体验；“无限探索”仍是接下来要实现的目标。</p><p>接下来会增加更多场景和玩法，改善生成速度与故事质量。这里展示的是研发中的样板，线上试玩可能尚未包含全部新内容。</p><a class="status-action" href="https://game.aiwaves.tech/cb90357b-fe01-48ab-b14b-0620eb0d556e/" target="_blank" rel="noopener noreferrer">试玩当前发布版本 <span aria-hidden="true">↗</span></a></div></section>
+
+    <section class="chapter multiplayer" id="multiplayer" aria-labelledby="multiplayer-title">
+      <div class="chapter-head"><div><span class="chapter-stamp">多人玩法 · 规划方向</span><h2 id="multiplayer-title">你修好一座桥，<br>后来的人也能走过去。</h2></div><p>我们想让玩家进入同一个会变化的世界：可以一起探索、分工完成任务，也可以在不同时间留下帮助。AI 再根据大家真正改变的事情，接着写后续故事。</p></div>
+      <p class="multiplayer-status">这套 2D 探索系统的首款多人样板尚未完成。以下为根据项目规划整理的目标体验。</p>
+      <div class="shared-example" aria-label="多人协作修桥的玩法示意">
+        <div class="shared-example-head"><span>举个例子：让断桥重新通行</span><small>玩法设想</small></div>
+        <div class="shared-actions">
+          <div><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="12" r="7"/><path d="M10 38v-7a14 14 0 0 1 28 0v7M9 40h30M17 32h14"/></svg><strong>你，找到材料</strong><p>探索旧仓库，把木板送到桥边。</p></div>
+          <div><svg viewBox="0 0 48 48" aria-hidden="true"><path d="m10 34 22-22 6 6-22 22zM26 12l6-6 10 10-6 6M8 40l8-2"/></svg><strong>朋友，完成维修</strong><p>用大家收集的材料，把通路修好。</p></div>
+          <div><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 35h40M5 29h38M9 22v18m10-20v20m10-20v20m10-18v18M7 22c9-10 25-10 34 0"/></svg><strong>后来的人，走上新路</strong><p>即使你已下线，修好的桥仍能帮助别人。</p></div>
+        </div>
+        <div class="shared-join" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="shared-world"><span>同一个世界，记住共同的结果</span><h3>桥通了，新区域开放了。</h3><p>AI 可以从这个已确认的变化出发，接着写桥对岸的事件、角色与任务。</p></div>
+      </div>
+      <div class="multiplayer-modes">
+        <article><span>同场探索</span><h3>看见彼此，一起出发。</h3><p>在同一张地图遇见朋友，一起调查场景、交流线索，再决定往哪里走。</p></article>
+        <article><span>共同任务</span><h3>你找线索，我来动手。</h3><p>围绕一个共同目标分工：收集材料、修复设施、打开道路。大家的贡献汇合成同一个结果。</p></article>
+        <article><span>异步协作</span><h3>没同时在线，也能互相帮助。</h3><p>留下路线提示、有限物资或修复成果。短期痕迹可以淡去，共同完成的重要工程可以留下长期变化。</p></article>
+      </div>
+      <div class="shared-boundary"><div><strong>共同拥有</strong><p>共享地点、公共资源、已经发生的世界事件。</p></div><div><strong>各自保留</strong><p>个人主线、伙伴关系、背包和秘密。一个人也能继续自己的冒险。</p></div></div>
+      <p class="multiplayer-next">推进顺序：先让两名玩家在同场看见彼此，再验证一个共享动作，最后扩展共同任务。完整玩法与正式联机体验仍待样板验证。</p>
+    </section>
 
     <section class="chapter future" id="future" aria-labelledby="future-title">
       <div class="chapter-head"><div><span class="chapter-stamp">未来展望</span><h2 id="future-title">说一个想法，<br>创造自己的游戏。</h2></div><p>再往前走一步：我们希望每个人都能当游戏创作者。告诉 AI 想玩什么、想学什么，它就能帮助搭出故事、场景和任务，让你走进去玩，也让别人来体验。</p></div>

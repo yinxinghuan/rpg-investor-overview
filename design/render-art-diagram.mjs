@@ -1,12 +1,33 @@
+import {t,translate,assertEnglish} from './english.mjs';
 import {readFile,writeFile} from 'node:fs/promises';
 const photos={};
 const dimensions={table:[512,512],sheet:[1024,512],photo:[768,576],floor:[640,1024]};
 for(const [key,name] of Object.entries({table:'table',sheet:'shelf-and-folder',photo:'generated-photo',floor:'floor'}))photos[key]=(await readFile(new URL(`../public/media/assembly/${name}.png`,import.meta.url))).toString('base64');
 const themes={a:{ink:'#193a4a',muted:'#536971',line:'#7d9090',paper:'#fffdf8',reuse:'#e6efe9',green:'#285c47',fresh:'#fbf0d4',gold:'#825117',decision:'#f5eddc',accent:'#f3ce76'},c:{ink:'#353064',muted:'#605b77',line:'#9488aa',paper:'#fff',reuse:'#e6efe9',green:'#285c47',fresh:'#efe8fa',gold:'#634897',decision:'#f0edf7',accent:'#d5c6f0'}};
 const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;');
-function render(theme,mobile){
+function render(theme,mobile,locale='zh'){
  const c=themes[theme],w=mobile?360:1000,h=mobile?1450:1620;
- const text=(x,y,s,size=22,color=c.ink,weight=400)=>`<text x="${x}" y="${y}" text-anchor="middle" fill="${color}" font-size="${size}" font-weight="${weight}">${escape(s)}</text>`;
+ const text=(x,y,s,size=22,color=c.ink,weight=400)=>{
+  let label=s, width;
+  if(locale==='en'){
+   label=t(s);
+   // Explicit bounds follow the actual nodes, including narrow branch labels.
+   width=mobile?(x===90||x===270?144:x===52||x===128?68:x===113?89:x===199?210:x===311?86:310):
+    (x===250||x===750?340:x===267||x===769?286:x===527?270:x===500?680:82);
+   if(s==='且在当前生成能力内')width=178;
+   if(s==='④ 新照片')width=110;
+   if(['复用','生成'].includes(s))width=48;
+   if(['有','没有'].includes(s))width=mobile?30:40;
+   if(['所需素材','是否已有？'].includes(s))width=mobile?166:245;
+   if(['校验素材，接入玩法','更新游戏，保存这次旅程','下次回来，接着这个发现继续探索'].includes(s))width=mobile?270:330;
+   if(s==='AI 规划后续剧情')width=mobile?266:395;
+   if(s==='“根据这段旧事，准备一张线索照片”')width=395;
+   // Estimate glyph width; only fit labels that would exceed their node.
+   const estimated=[...label].reduce((sum,ch)=>sum+(/[MW@]/.test(ch)?.85:/[il .,:’']/ .test(ch)?.28:.55),0)*size;
+   width=estimated>width?` textLength="${width}" lengthAdjust="spacingAndGlyphs"`:'';
+  }
+  return `<text x="${x}" y="${y}" text-anchor="middle" fill="${color}" font-size="${size}" font-weight="${weight}"${width||''}>${escape(label)}</text>`;
+ };
  const rect=(x,y,w,h,fill=c.paper,stroke=c.line,r=16)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${fill}" stroke="${stroke}" stroke-width="1.4"/>`;
  const edge=(d,arrow=true,color=c.line)=>`<path d="${d}" fill="none" stroke="${color}" stroke-width="2" ${arrow?'marker-end="url(#arrow)"':''}/>`;
  const crop=(name,x,y,w,h,v)=>`<svg x="${x}" y="${y}" width="${w}" height="${h}" viewBox="${v}" preserveAspectRatio="xMidYMid meet"><use href="#asset-${name}"/></svg>`;
@@ -25,7 +46,7 @@ function render(theme,mobile){
    +rect(473,71,121,125,c.fresh,c.gold,8)+crop('photo',480,79,107,80,'0 0 768 576')+text(533,182,'④ 新照片',15,c.gold,650)
    +'</svg>';
  };
- const badge=(x,y,label,fill)=>`<rect x="${x-20}" y="${y-15}" width="40" height="30" rx="15" fill="${fill}"/>`+text(x,y+5,label,14,c.paper,650);
+ const badge=(x,y,label,fill)=>`<rect x="${x-(locale==='en'?29:20)}" y="${y-15}" width="${locale==='en'?58:40}" height="30" rx="15" fill="${fill}"/>`+text(x,y+5,label,14,c.paper,650);
  const film=(x,y,size=42)=>`<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="0 0 48 48"><rect x="2" y="7" width="44" height="34" rx="4" fill="${c.ink}"/><g fill="${c.accent}"><path d="M11 15h11v18H11zM26 15h11v18H26z"/><path d="M7 10h4v3H7zM20 10h4v3h-4zM33 10h4v3h-4zM7 35h4v3H7zM20 35h4v3h-4zM33 35h4v3h-4z"/></g></svg>`;
  let s=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" role="img" aria-labelledby="title desc"><title id="title">从一张底片开始：素材复用与生成流程图</title><desc id="desc">玩家找到底片，AI 根据调查经历规划照片内容。逐项判断素材是否已有：放大台、木搁架、照片夹等复用已有素材；没有且支持生成的线索照片由图像模型绘制。校验后接入显影玩法，更新游戏并保存。图中使用项目原始透明素材和图像生成原文件，后方用同一批素材组装房间示意。</desc><defs>${Object.entries(photos).map(([name,data])=>`<image id="asset-${name}" href="data:image/png;base64,${data}" width="${dimensions[name][0]}" height="${dimensions[name][1]}"/>`).join('')}<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="${c.line}"/></marker><pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="${c.line}" opacity=".2"/></pattern><pattern id="checker" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="16" height="16" fill="#fff"/><path d="M0 0h8v8H0zM8 8h8v8H8z" fill="#e6ebe8"/></pattern></defs><rect width="${w}" height="${h}" fill="url(#dots)"/><g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">`;
  if(!mobile){
@@ -62,6 +83,8 @@ function render(theme,mobile){
   s+=edge('M180 1208V1243')+rect(32,1245,296,87,c.ink,c.ink)+text(180,1279,'更新游戏，保存旅程',21,'#fff',650)+text(180,1309,'下次回来，接着这个发现继续玩',14,'#e6e8e6');
   s+=text(180,1373,'独立的物件，组装成可探索的场景',14,c.muted)+text(180,1401,'新照片在相关剧情触发时生成，需要等待',12,c.muted);
  }
- return s+'</g></svg>';
+ s+='</g></svg>';
+ if(locale==='en'){s=translate(s);assertEnglish(s,'art diagram');}
+ return s;
 }
-for(const theme of ['a','c'])for(const mobile of [false,true])await writeFile(new URL(`../public/media/art-flow-${theme}-${mobile?'mobile':'wide'}.svg`,import.meta.url),render(theme,mobile));
+for(const theme of ['a','c'])for(const mobile of [false,true])for(const locale of ['zh','en'])await writeFile(new URL(`../public/media/art-flow-${theme}-${mobile?'mobile':'wide'}${locale==='en'?'-en':''}.svg`,import.meta.url),render(theme,mobile,locale));

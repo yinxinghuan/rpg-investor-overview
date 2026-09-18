@@ -83,3 +83,19 @@ document.querySelectorAll('[data-idea]').forEach(button=>{
     }));
   });
 });
+
+// Language changes preserve the current section in the same presentation.
+document.querySelectorAll('.locale-link').forEach(link=>link.addEventListener('click',()=>{
+ const destination=new URL(link.href);destination.hash=location.hash;link.href=destination.href;
+}));
+
+const ruleCases={
+ missing:{facts:'你就在门前，但背包里没有钥匙。',verdict:'未通过 · 缺少钥匙',result:'门还是锁着的。',detail:'AI 可以提示你去哪里找钥匙，但不能只写一句“门开了”就替你放行。'},
+ ready:{facts:'你就在门前，持有钥匙，也已获准进入。',verdict:'通过 · 条件满足',result:'门打开了，进度也记住了。',detail:'开门和相关任务进展一起写入。此后，AI 可以描述你走进档案室，后续行动也从这个新状态继续。'},
+ retry:{facts:'同一个动作编号再次送达；记录显示，它已经成功处理。',verdict:'已处理 · 返回原结果',result:'不会再开一次，也不会再结算一次。',detail:'系统认出这是同一次行动，返回已有回执。即使这次行动涉及消耗或奖励，也不会重复扣除或发放。'}
+};
+document.querySelectorAll('[data-rule-case]').forEach(button=>button.addEventListener('click',()=>{
+ const state=ruleCases[button.dataset.ruleCase];
+ document.querySelectorAll('[data-rule-case]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+ for(const key of ['facts','verdict','result','detail'])document.querySelector('#rule-'+key).textContent=state[key];
+}));

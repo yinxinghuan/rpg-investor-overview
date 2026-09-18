@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#193a4a">
+  <meta name="description" content="Explore how AlterU uses language models, generated art and playable spaces to build an RPG world that grows with each adventure.">
+  <title>C · Creation | You explore. AI creates. | AlterU AI RPG</title>
+  <link rel="stylesheet" href="./base.css?v=776bb746d2">
+  <link rel="stylesheet" href="./theme-c.css?v=9e6e565ec6">
+  <link rel="stylesheet" href="./review.css?v=c32f55f207">
+  <script src="./main-en.js?v=3094266637" defer></script>
+  <link rel="stylesheet" href="./art-flow.css?v=ead48fb25b">
+  <link rel="stylesheet" href="./multiplayer.css?v=ade3cba799">
+  <link rel="stylesheet" href="./engine.css?v=a9a9426803">
+  <link rel="stylesheet" href="./localization.css?v=7068e41fd4">
+  <link rel="alternate" hreflang="zh-CN" href="./concept-c.html">
+</head>
+<body data-concept="c"><div class="design-review"><span>Project overview · Creation</span><nav aria-label="Switch presentation"><a href="./index-en.html">A Exploration</a><a href="./concept-c-en.html" aria-current="page">C Creation</a><a href="./compare-en.html">Both editions</a></nav><nav class="language-switch" aria-label="Language"><a class="locale-link" lang="zh-CN" href="./concept-c.html">中文</a><a class="locale-link" lang="en" href="./concept-c-en.html" aria-current="page">English</a></nav></div>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header" id="top">
+    <a class="wordmark" href="#top" aria-label="AlterU AI RPG home"><span class="wordmark-symbol" aria-hidden="true"><span></span></span><span>AlterU <small>AI RPG</small></span></a>
+    <nav aria-label="Page navigation"><a href="#growth">How it plays</a><a href="#sample">The prototype</a><a href="#engine">How the world works</a><a href="#multiplayer">Multiplayer</a><a href="#future">What comes next</a></nav>
+    <a class="nav-play" href="https://game.aiwaves.tech/cb90357b-fe01-48ab-b14b-0620eb0d556e/" target="_blank" rel="noopener noreferrer">Play the released demo <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="hero-file"><span class="file-dot"></span> Our ambition: anyone can create their own game</div>
+        <h1 id="hero-title">Share an idea.<br> Begin your adventure.</h1>
+        <p class="hero-answer">We want to make <strong>room for every imagination to become a world.</strong></p>
+        <p class="hero-description">Describe a story you want to play or something you want to learn. AI could turn it into scenes and tasks. Today, our Old Street RPG is testing how AI-created content becomes something you can actually play.</p>
+        <div class="hero-actions"><a class="primary-action" href="#future">Explore the possibilities <span aria-hidden="true">↓</span></a><a class="quiet-action" href="#engine">Behind the scenes</a></div>
+      </div>
+      <div class="hero-visual" aria-label="Old Street prototype screenshot and exploration route">
+        <div class="creator-studio"><div class="studio-header">Your game studio<span>Future concept</span></div><div class="studio-body"><div class="studio-tabs" role="group" aria-label="Explore future game-creation examples"><button type="button" data-idea="science" aria-pressed="true">Science exploration</button><button type="button" data-idea="classroom" aria-pressed="false">Classroom learning</button><button type="button" data-idea="language" aria-pressed="false">Language learning</button></div><span class="studio-label">I want to make a game</span><p class="studio-prompt" id="idea-prompt">Take students to Mars to find out why the base is running out of water.</p><div class="studio-result"><span>This idea could become</span><h3 id="idea-title">Where did the base’s water go?</h3><div class="studio-route" id="idea-route"><span>Enter the base</span><span>Gather clues</span><span>Restore the water</span></div><p id="idea-description">Connect the water cycle and resource management through an investigation adventure.</p></div><p class="studio-note">These are preset examples, not live AI generation. Creating an entire game from an idea is a future goal and is not yet available.</p></div><div class="studio-bottom">An idea → A story and scenes → A world you can play</div></div>
+      </div>
+      <div class="hero-bottom"><span>You explore</span><b aria-hidden="true">→</b><span>AI extends the story</span><b aria-hidden="true">→</b><span>New playable content</span><b aria-hidden="true">↻</b><span>Explore further</span></div>
+    </section>
+
+    <section class="chapter future" id="future" aria-labelledby="future-title">
+      <div class="chapter-head"><div><span class="chapter-stamp">Looking ahead</span><h2 id="future-title">Share an idea.<br> Create your own game.</h2></div><p>Our next ambition is to let everyone become a game creator. Describe what you want to play or learn, and AI could help create a story, scenes and tasks that you and others can step into.</p></div>
+
+      <div class="future-cases">
+        <article><span class="case-category">Science exploration</span><h3>Turn a question<br> into an adventure.</h3><p class="case-prompt">“Let me explore an island ecosystem and find out why its fish are disappearing.”</p><p>Players could observe water quality, record wildlife, compare hypotheses and try changing environmental conditions. We hope to connect verified science and simulation rules to make asking, experimenting and discovering part of the game.</p><p class="case-payoff">Possible uses: science outreach, lab lessons and interactive explanations.</p></article>
+        <article><span class="case-category">Classroom learning</span><h3>A teacher sets a problem.<br> Students step inside it.</h3><p class="case-prompt">“Turn this water-cycle lesson into an investigation of a town’s water shortage.”</p><p>A teacher supplies the curriculum and learning goals. AI helps create characters, clues and tasks. Students trace water sources and repair the supply while explaining what they learned. Teachers review the content and difficulty.</p><p class="case-payoff">Possible uses: lesson adventures, levelled practice and group assignments.</p></article>
+        <article><span class="case-category">Language learning</span><h3>Practise the words<br> by living the situation.</h3><p class="case-prompt">“Make a travel game at my English level. Today I want to practise directions and hotel check-in.”</p><p>Visit stations, cafés and hotels, talk to AI characters and complete tasks. Future versions could adapt language and hints to the learner, bringing unfamiliar words back in later stories for practice.</p><p class="case-payoff">Possible uses: contextual speaking, graded stories and personalised review.</p></article>
+      </div>
+      <p class="future-note">These are future application concepts, not released features. Science and classroom content require reliable sources, expert review and evaluation of learning outcomes.</p>
+      <div class="future-ending"><h3>From playing a game<br> to making your imagination playable.</h3><p>That is the next door we hope to open.</p></div>
+    </section>
+    <section class="chapter multiplayer" id="multiplayer" aria-labelledby="multiplayer-title">
+      <div class="chapter-head"><div><span class="chapter-stamp">Multiplayer · Planned direction</span><h2 id="multiplayer-title">You repair a bridge.<br> The next player can cross it.</h2></div><p>We want players to enter the same changing world: explore together, share a task or leave help for someone who arrives later. AI would then continue the story from the changes players actually made.</p></div>
+      <p class="multiplayer-status">The first multiplayer prototype for this 2D exploration system is not complete. The examples below describe the intended experience, based on our project plans.</p>
+      <div class="shared-example" aria-label="Illustration of players cooperating to repair a bridge">
+        <div class="shared-example-head"><span>An example: reopen a broken bridge</span><small>Gameplay concept</small></div>
+        <div class="shared-actions">
+          <div><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="12" r="7"/><path d="M10 38v-7a14 14 0 0 1 28 0v7M9 40h30M17 32h14"/></svg><strong>You find the materials</strong><p>Explore an old warehouse and bring planks to the bridge.</p></div>
+          <div><svg viewBox="0 0 48 48" aria-hidden="true"><path d="m10 34 22-22 6 6-22 22zM26 12l6-6 10 10-6 6M8 40l8-2"/></svg><strong>A friend makes the repair</strong><p>Use the materials everyone collected to restore the route.</p></div>
+          <div><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 35h40M5 29h38M9 22v18m10-20v20m10-20v20m10-18v18M7 22c9-10 25-10 34 0"/></svg><strong>Later players take the new route</strong><p>Even after you log off, the repaired bridge can help someone else.</p></div>
+        </div>
+        <div class="shared-join" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="shared-world"><span>One shared world remembers the result</span><h3>The bridge opens. A new area awaits.</h3><p>AI could build on this confirmed change to create events, characters and tasks on the other side.</p></div>
+      </div>
+      <div class="multiplayer-modes">
+        <article><span>Explore together</span><h3>Meet on the map. Set off together.</h3><p>Encounter friends in the same space, investigate a scene, exchange clues and decide where to go next.</p></article>
+        <article><span>Shared tasks</span><h3>You find the clue. I take action.</h3><p>Divide the work towards one goal: gather materials, repair equipment or open a route. Everyone’s contribution becomes part of a shared result.</p></article>
+        <article><span>Help across time</span><h3>Different schedules. Shared impact.</h3><p>Leave route tips, limited supplies or repairs for others. Temporary traces can fade, while major projects completed together can leave lasting changes.</p></article>
+      </div>
+      <div class="shared-boundary"><div><strong>Shared by the world</strong><p>Common locations, public resources and confirmed world events.</p></div><div><strong>Kept with each player</strong><p>Your main story, companions, inventory and secrets. You can also continue your own adventure alone.</p></div></div>
+      <p class="multiplayer-next">Planned sequence: first let two players see each other in one scene, then validate one shared action, then expand to shared tasks. The full multiplayer experience still needs prototype validation.</p>
+    </section>
+
+    <section class="chapter sample" id="sample" aria-labelledby="sample-title">
+      <div class="chapter-head"><div><span class="chapter-stamp">What works today?</span><h2 id="sample-title">One old street.<br> A playable first step.</h2></div><p>Our first prototype is The Last Letter on Old Street. Collect a letter for your family, investigate past events and develop a photograph. AI already contributes investigation materials, room-layout proposals and photo content.</p></div>
+      <div class="journey">
+        <div class="journey-rail" role="tablist" aria-label="Exploration route">
+          <button type="button" class="journey-stop active" role="tab" aria-selected="true" aria-controls="journey-panel" id="stop-street" data-shot="street"><span class="stop-index">01</span><span><strong>A story begins</strong><small>An authored street</small></span></button>
+          <button type="button" class="journey-stop" role="tab" aria-selected="false" aria-controls="journey-panel" id="stop-archive" data-shot="archive" tabindex="-1"><span class="stop-index">02</span><span><strong>AI creates an investigation</strong><small>Clues and room layouts</small></span></button>
+          <button type="button" class="journey-stop" role="tab" aria-selected="false" aria-controls="journey-panel" id="stop-roof" data-shot="roof" tabindex="-1"><span class="stop-index">03</span><span><strong>Content meets gameplay</strong><small>Clues lead to map actions</small></span></button>
+          <button type="button" class="journey-stop" role="tab" aria-selected="false" aria-controls="journey-panel" id="stop-develop" data-shot="develop" tabindex="-1"><span class="stop-index">04</span><span><strong>Another discovery</strong><small>A photo tied to the investigation</small></span></button>
+        </div>
+        <div class="journey-panel" id="journey-panel" role="tabpanel" aria-labelledby="stop-street" tabindex="0">
+          <div class="journey-image"><img id="journey-image" src="./media/street.png" width="390" height="844" alt="Actual gameplay: the player outside the photo studio on Old Street."><span class="image-note">Actual gameplay · Original in-game UI</span></div>
+          <div class="journey-explain"><span id="journey-count">Prototype 01 / 04</span><h3 id="journey-title">Start on an old street</h3><p id="journey-lead">Collect a letter, meet residents and search for clues. AI uses these experiences to prepare the next investigation.</p><div class="experience-result"><div><small>How it works</small><p id="journey-action">We build the street, characters and core mechanics. You step inside and begin the adventure.</p></div><div><small>Why it matters</small><p id="journey-outcome">Knowing what has already happened gives AI a basis for continuing the story.</p></div></div><p class="journey-hint">Select a step above to see what happens in the game.</p></div>
+        </div>
+      </div>
+      <div class="sample-after"><p><strong>What we are building: </strong>AI-written clues that lead to real gameplay: places to search, objects to investigate and discoveries that can start another story.</p><a href="https://game.aiwaves.tech/cb90357b-fe01-48ab-b14b-0620eb0d556e/" target="_blank" rel="noopener noreferrer">Open the current live demo <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="chapter growth" id="growth" aria-labelledby="growth-title">
+      <div class="chapter-head"><div><span class="chapter-stamp">An example of the experience we are aiming for</span><h2 id="growth-title">Open a letter.<br> Begin a new adventure.</h2></div><p>Imagine a letter mentions a vanished photo studio, and you decide to investigate. We want AI to follow that curiosity: develop the clues, prepare new places and lead you towards the next mystery.</p></div>
+      <ol class="growth-chain"><li><span>You discover</span><h3>An address hidden in a letter</h3><p>What happened to this photo studio?</p></li><li><span>AI develops the story</span><h3>A film negative. A new lead.</h3><p>AI uses the letter to develop the mystery and suggest where to look next.</p></li><li><span>The world expands</span><h3>A door opens. You step inside.</h3><p>The system prepares spaces and objects, turning a clue into a place to explore.</p></li><li><span>The adventure continues</span><h3>One answer leads to another discovery</h3><p>What you find becomes the beginning of the next chapter.</p></li></ol>
+      <p class="growth-caption">This is an illustration of our ambition. We are building towards it through a prototype with a limited set of scenes.</p>
+    </section>
+
+    <section class="chapter value" id="value" aria-labelledby="value-title">
+      <div class="chapter-head value-head"><div><span class="chapter-stamp">Why it matters</span><h2 id="value-title">Finish one chapter.<br> Discover what comes next.</h2></div><p>Think of AI as a writer travelling alongside you. It knows whom you met and what you discovered, then develops what happens next. We want new content to emerge as you play, giving the adventure room to continue.</p></div>
+      <div class="value-list">
+        <article><div class="value-marker"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M8 44V13l14-5 13 5 13-5v31l-13 5-13-5-14 5Zm14-36v31m13-26v31M17 28h10m9-5h7"/></svg></div><div><h3>More play, more story</h3><p>An old photo you find today could begin a new investigation tomorrow. AI builds on what you have already experienced to create more clues, discoveries and adventures.</p></div><span class="value-proof">Being tested in the prototype</span></article>
+        <article><div class="value-marker"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M14 9h23l5 5v33H14zM21 21h15M21 28h15M21 35h9M37 9v6h5"/></svg></div><div><h3>Walk into places AI helps create</h3><p>A new room can have a door, a table and papers hiding a clue. Walk inside, examine the objects and try things out. The story becomes something you can play.</p></div><span class="value-proof">Starting with bounded rooms and mechanics</span></article>
+        <article><div class="value-marker"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M12 13h14v14H12zM30 13h14v14H30zM12 31h14v14H12zM30 31h14v14H30zM26 20h4m-11 7v4m18-4v4m-11 11h4"/></svg></div><div><h3>Your past shapes the next chapter</h3><p>The game remembers what you did and continues from there. Eventually, we want different players to experience different stories, with a reason to return and explore further.</p></div><span class="value-proof">Our longer-term ambition</span></article>
+      </div>
+    </section>
+
+    <section class="chapter engine" id="engine" aria-labelledby="engine-title">
+      <div class="chapter-head"><div><span class="chapter-stamp">THE CORE · A WORLD WITH CAUSE AND EFFECT</span><h2 id="engine-title">A world that speaks,<br> plays fair, and remembers.</h2></div><p>You say, “I want to open this door.” AI can bring that moment to life. But whether it opens depends on where you are, what you carry, and what you have done. Once confirmed, the outcome becomes part of the world.</p></div>
+      <div class="engine-roles">
+        <article><span>01 / AI NARRATION</span><h3>Understand your intent</h3><p>Turn your own words into an intended action, with natural responses from characters and the world.</p></article>
+        <article><span>02 / PROLOG RULES</span><h3>Check what is possible</h3><p>Check location, items, quests, and relationships. Approve actions that meet the rules, and explain why others fail.</p></article>
+        <article><span>03 / STORY SESSION</span><h3>Record what happened</h3><p>Save changes to items, quests, and relationships together. Retrying the same action never applies its effects twice.</p></article>
+      </div>
+      <div class="engine-example">
+        <div class="engine-example-head"><div><span class="engine-eyebrow">ONE DOOR EXPLAINS THE PROCESS</span><h3>“I use my key to open the archive.”</h3></div><span class="engine-demo-label">Explore an illustrated example</span></div>
+        <ol class="engine-pipeline">
+          <li><span>Your words</span><strong>Open the door</strong></li><li><span>AI interprets</span><strong>Propose an action</strong></li><li><span>Rules check</span><strong>Place, key, permission</strong></li><li><span>Confirm and save</span><strong>The world changes</strong></li>
+        </ol>
+        <div class="engine-scenarios" role="group" aria-label="Choose a door scenario"><button type="button" data-rule-case="missing" aria-pressed="true">No key</button><button type="button" data-rule-case="ready" aria-pressed="false">All conditions met</button><button type="button" data-rule-case="retry" aria-pressed="false">Network retry</button></div>
+        <div class="engine-result" aria-live="polite" aria-atomic="true"><div class="engine-check"><span>CHECK THE RECORD</span><p id="rule-facts">You are at the door, but there is no key in your bag.</p><strong id="rule-verdict">Blocked · Key missing</strong></div><div class="engine-receipt"><span>WHAT ACTUALLY HAPPENS</span><h4 id="rule-result">The door stays locked.</h4><p id="rule-detail">AI can suggest where to look for the key. Writing “the door opens” cannot give you access.</p></div></div>
+        <p class="engine-demo-note">This preset illustration does not access a game save. Here, opening the door requires your presence, the key, and permission to enter.</p>
+      </div>
+      <div class="engine-data">
+        <div><span class="chapter-stamp">WHAT IS SAVED? HOW IS IT USED?</span><h3>Save the facts.<br> Base the next action on them.</h3><p>One authoritative world record is the source of truth. AI refers to it for the story, rules check it before accepting actions, and successful actions update it.</p></div>
+        <dl class="engine-ledger"><div><dt>Current state</dt><dd>Your location, who owns the key, whether the door is open, and quest progress.</dd></div><div><dt>History and relationships</dt><dd>Who you helped, promises you made, and changes in trust or hostility accepted by the rules.</dd></div><div><dt>Action receipts</dt><dd>This action has already been handled. A network retry returns the same result without charging resources or granting rewards again.</dd></div></dl>
+      </div>
+      <div class="engine-memory"><div><span class="engine-eyebrow">WHY DO CHARACTERS REMEMBER YOU?</span><h3>Help the shopkeeper. Change your next encounter.</h3></div><ol><li><span>Record the event</span><strong>You return a lost item</strong></li><li><span>Apply the relationship rule</span><strong>The shopkeeper offers help</strong></li><li><span>Check that fact next time</span><strong>The key can be lent</strong></li></ol><p>This is one example of a relationship rule. Borrowing the key depends on recorded help and current conditions. AI can change the wording, but cannot casually rewrite what happened.</p></div>
+      <div class="engine-guarantees"><p><strong>All changes succeed together, or none do.</strong> Changes to items, quests, and relationships are saved as one transaction, avoiding situations where an item is spent but quest progress is lost.</p><p><strong>Choices last. Come back and carry on.</strong> Failures have reasons and successes leave a record. Attitudes, item ownership, and quest progress persist.</p></div>
+      <p class="engine-summary">AI gives the world a voice.<br> <strong>Rules give it logic. Saved state gives it memory.</strong></p>
+      <p class="engine-scope">This describes the RPG system’s hybrid architecture. The Prolog service has been validated separately; the Old Street spatial prototype still uses its existing rules and save pipeline.</p>
+      <a class="engine-art-link" href="#technology">Next: how does accepted content become a scene you can see? <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="chapter technology" id="technology" aria-labelledby="technology-title">
+      <div class="chapter-head"><div><span class="chapter-stamp">MAKING THE WORLD VISIBLE · THE ART PIPELINE</span><h2 id="technology-title">As you explore,<br> new content takes shape.</h2></div><p>In the Old Street prototype, you recover a film negative and AI prepares a photo connected to the investigation. The table, shelf and folder reuse existing art; the new discovery is generated for the story.</p></div>
+      <figure class="art-flow" aria-labelledby="art-caption">
+        <picture><source media="(max-width: 700px)" srcset="./media/art-flow-c-mobile-en.svg"><img src="./media/art-flow-c-wide-en.svg" width="1000" height="1620" loading="lazy" alt="Player actions lead to story planning, then a decision about available art. Existing assets are reused or rearranged. Supported new assets are generated. Both paths merge into validated gameplay, an updated scene and a saved journey."></picture>
+        <figcaption id="art-caption"><span class="flow-legend flow-legend-reuse">Reused: viewing table, shelf and folder</span><span class="flow-legend flow-legend-new">Generated: a photo tied to the story</span></figcaption>
+      </figure>
+      <details class="art-example"><summary>See an example: how does an existing darkroom reveal something new?</summary><div class="art-example-body"><figure><img src="./media/develop.png" width="1280" height="720" loading="lazy" alt="Actual prototype gameplay: a generated clue photo inside the existing darkroom activity."><figcaption>Actual gameplay · Generated photo in the developing activity</figcaption></figure><div><h3>A familiar setting. A new discovery.</h3><ul><li><strong>You uncover a past event: </strong>AI uses the clues you found to describe what the photo should show.</li><li><strong>Existing assets: </strong>The darkroom, table and developing controls reuse existing content.</li><li><strong>New art: </strong>An image model creates the clue photo from the description. The system validates it and adds it to the game.</li><li><strong>Keep playing: </strong>Adjust focus and exposure to reveal the details. The result is saved alongside your progress.</li></ul></div></div></details>
+      <p class="art-scope">A scene can combine existing and newly generated assets. The current prototype generates clue photos; more character and scene types are future expansion areas.</p>
+    </section>
+
+    <section class="chapter status" aria-labelledby="status-title"><div><span class="chapter-stamp">From prototype to ambition</span><h2 id="status-title">Start with one street.<br> Grow towards an endless adventure.</h2></div><div class="status-right"><p>AI-generated investigation materials, room-layout proposals and photos are already connected to the prototype. We are making these parts into a more coherent, enjoyable experience. Open-ended exploration remains a goal ahead.</p><p>Next, we plan to add more scenes and mechanics and improve generation speed and story quality. This is a research prototype; the live demo may not yet include every feature shown here.</p><a class="status-action" href="https://game.aiwaves.tech/cb90357b-fe01-48ab-b14b-0620eb0d556e/" target="_blank" rel="noopener noreferrer">Play the current release <span aria-hidden="true">↗</span></a></div></section>
+
+  </main>
+  <footer><div class="footer-mark">AlterU <span>AI RPG</span></div><p>Let each adventure become the starting point of another world.</p><a href="#top">Back to top ↑</a></footer>
+</body>
+</html>
