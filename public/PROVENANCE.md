@@ -65,3 +65,5 @@
 ## AlterU 品牌标识（2026-09-18）
 
 页眉、页脚和浏览器图标直接复用 AlterU 落地页 `https://alteru.app/` 的官方资产：`alteru-landing/assets/brand/alteru.svg` 与 `alteru-favicon.svg`，原文件复制至 `public/media/brand/`。A 版使用原白色标识；C 版通过 CSS `brightness(0)` 显示深色标识，SVG 原文件不修改。
+
+字标排版同步落地页 `_shared.css` 的 `.nav-brand`：图标 32px、横向间距 10px、Montserrat 800 / 14px、字距 0.18em、全大写。字体按落地页方式通过 Google Fonts 加载；移除原先附在标识中的 AI RPG 小字。
