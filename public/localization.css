@@ -9,3 +9,7 @@ html[lang="en"] .hero h1{letter-spacing:-.04em;line-height:1.12}html[lang="en"] 
 [data-concept="a"] .site-header>.language-switch a{color:#f4efe1}[data-concept="a"] .site-header>.language-switch a[aria-current="page"]{background:#f3ce76;color:#193a4a}
 @media(max-width:1200px){.site-header>nav:not(.language-switch){display:none}}
 @media(max-width:700px){.site-header{display:grid;grid-template-columns:1fr auto;gap:8px 12px}.site-header>.wordmark{grid-column:1;grid-row:1}.site-header>.language-switch{grid-column:2;grid-row:1;gap:0}.site-header>.language-switch a{padding:10px 8px;font-size:12px}.site-header>.nav-play{grid-column:1/-1;grid-row:2;justify-self:start}.site-header>.nav-play,html[lang="en"] .site-header>.nav-play{max-width:none;white-space:nowrap;font-size:12px}}
+
+/* Original U logo from the AlterU landing page; preserve the page themes. */
+.wordmark{gap:10px}.landing-logo{display:block;flex-shrink:0;object-fit:contain;pointer-events:none}.footer-mark{display:flex;align-items:center;gap:10px}.footer-mark>span{margin-left:0}[data-concept="c"] .landing-logo{filter:brightness(0)}
+@media(max-width:390px){.wordmark>span{display:flex;flex-direction:column;align-items:flex-start;gap:2px}.wordmark small,html[lang="en"] .wordmark small{margin-left:0;font-size:10px}.wordmark{font-size:21px}}

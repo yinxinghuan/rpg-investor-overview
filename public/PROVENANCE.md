@@ -61,3 +61,7 @@
 ## 英文版本
 
 正文、动态示例和素材图均有英文。真实游戏截图保留原样中文界面，英文旁注明为原游戏 UI；没有将截图重绘成并不存在的英文游戏版本。
+
+## AlterU 品牌标识（2026-09-18）
+
+页眉、页脚和浏览器图标直接复用 AlterU 落地页 `https://alteru.app/` 的官方资产：`alteru-landing/assets/brand/alteru.svg` 与 `alteru-favicon.svg`，原文件复制至 `public/media/brand/`。A 版使用原白色标识；C 版通过 CSS `brightness(0)` 显示深色标识，SVG 原文件不修改。
